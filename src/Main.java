@@ -1,15 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Scanner in  = new Scanner(System.in);
+        double tempStart = 0.0;
+        double tempEnd = 0.0;
+
+
+        boolean done = false;
+        do
+        {
+            System.out.println("Please enter amount to convert to Fahrenheit: ");
+            if(in.hasNextDouble())
+            {
+                tempStart = in.nextDouble();
+                in.nextLine();
+                done = true;
+            }
+            else
+            {
+                String trash = in.next();
+                System.out.println("You said your temp was: " + trash);
+                System.out.println("You have to enter a valid amount!");
+            }
+        }while(!done);
+
+
+        tempEnd = (tempStart * 1.8) + 32;
+
+        System.out.println("The temperature in Fahrenheit is:  " + tempEnd);
+
     }
 }
